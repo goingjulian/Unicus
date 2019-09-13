@@ -1,0 +1,23 @@
+<div *ngIf="!clientToKeep" class="uni-section">
+  <section-header [headerText]="'Maak een selectie'" [headerSubText]="'Selecteer de correcte client door op \'kiezen\' te klikken.'"></section-header>
+  <section-main class="uni-content__space-between">
+    <un-client-container [duplicateClient]="client1" [autofocusInput]="true" [containerName]="'Eerste client'" [containerId]="0"></un-client-container>
+    <un-client-container [duplicateClient]="client2" [autofocusInput]="false" [containerName]="'Tweede client'" [containerId]="1" ></un-client-container>
+  </section-main>
+</div>
+
+<div *ngIf="clientToKeep && !clientMerged" class="uni-section">
+  <section-header [headerText]="'Individuele velden overnemen'" [headerSubText]="'Klik op individuele velden om deze over te nemen naar de samengevoegde persoon.'"></section-header>
+  <section-main class="uni-content__center">
+    <un-client-select *ngIf="clientToKeep && !clientMerged"></un-client-select>
+  </section-main>
+</div>
+
+<div *ngIf="clientMerged" class="uni-merge">
+  <section-header [headerText]="'Samenvoegen geslaagd'" [headerSubText]="'De twee personen zijn samengevoegd naar de onderstaande persoon'"></section-header>
+  <section-main class="uni-content__center">
+    <un-client-result *ngIf="clientMerged"></un-client-result>
+  </section-main>
+</div>
+
+

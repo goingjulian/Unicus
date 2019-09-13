@@ -1,0 +1,48 @@
+@import '~src/assets/sass/variables';
+
+:host {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px;
+  display: block;
+
+
+  background-color: #fff;
+  border: 1px solid $border;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 0 $border;
+}
+
+div[class^='detect-duplicate-scan'] {
+  margin: 20px 0;
+}
+
+.detect-duplicate-scan__loading-bar {
+  background-color: $bg;
+  .loading-bar {
+    width: 10%;
+    height: 30px;
+    background-color: $text-dark;
+    text-align: center;
+    line-height: 30px;
+    color: $color-white;
+    transition: width 0.6s ease-out;
+  }
+}
+.detect-duplicate-scan__reset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  > * {
+    margin: 10px;
+  }
+}
+
+.detect-duplicate-scan__message {
+  text-align: center;
+  span {
+    @extend .uni-text__size-text;
+    color: $text-dark;
+  }
+}

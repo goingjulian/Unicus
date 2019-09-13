@@ -1,0 +1,84 @@
+<table class="table duplicate-clients-table">
+  <thead>
+  <tr>
+    <th>Persoon</th>
+    <th class="cell-half cell-text-align__center">Geslacht</th>
+    <th>Geboortedatum</th>
+    <th>Geboorteplaats</th>
+    <th>Bsn</th>
+    <th>Prioriteit</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let client of duplicateClients" (click)="openDuplicateClients(client)">
+    <td>
+      <div>{{ client.getMainRecord().getVoornamen("[onbekend]") }} {{ client.getMainRecord().getTussenvoegsels() }}
+        {{ client.getMainRecord().getGeslachtsnaam() }}
+      </div>
+      <div>{{ client.getDoubleRecord().getVoornamen("[onbekend]") }} {{ client.getDoubleRecord().getTussenvoegsels() }}
+        {{ client.getDoubleRecord().getGeslachtsnaam() }}
+      </div>
+    </td>
+    <td class="cell-half cell-text-align__center">
+      <div>{{client.getMainRecord().getGeslacht()}}</div>
+      <div>{{client.getDoubleRecord().getGeslacht()}}</div>
+    </td>
+    <td>
+      {{client.getMainRecord().getGeboortedatum()}} <br>
+      <div class="secondary">{{client.getDoubleRecord().getGeboortedatum()}}</div>
+    </td>
+    <td>
+      {{client.getMainRecord().getGeboorteplaats()}} <br>
+      <div class="secondary">{{client.getDoubleRecord().getGeboorteplaats()}}</div>
+    </td>
+    <td>
+      {{client.getMainRecord().getBsn()}} <br>
+      <div class="secondary">{{client.getDoubleRecord().getBsn()}}</div>
+    </td>
+    <td class="cell-text-align__center">
+      <span>{{ getSimilarityString(client.getSimilarityScore()) }}</span>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="4" class="cell-error cell-full"
+        *ngIf="loadingDuplicateClients || !duplicateClients || stopLoadingResults">
+      <div *ngIf="loadingDuplicateClients">
+        <span>Dubbele clienten aan het laden</span>
+        <loader-circle [colorLoader]="'rgb(64, 71, 81)'"></loader-circle>
+      </div>
+      <div *ngIf="stopLoadingResults && duplicateClients">
+        <span>Geen nieuwe dubbele clienten meer gevonden!</span>
+      </div>
+      <div *ngIf="!loadingDuplicateClients && !duplicateClients">
+        <span>Geen dubbele clienten gevonden!</span>
+      </div>
+    </td>
+  </tr>
+  </tfoot>
+</table>
+<table class="table duplicate-clients-table-sidebar">
+  <tbody>
+  <tr>
+    <td>
+      <span class="cell-header cell-text-align__center">Start een nieuwe scan</span>
+      <div class="cell-content">
+        <button (click)="startDuplicateScan()" class="button__green">
+          <span>Start scan</span>
+        </button>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="cell-header cell-text-align__center">Herlaad pagina</span>
+      <div class="cell-content">
+        <button (click)="reloadResults()" class="button__grey">
+          <span>Herlaad</span>
+        </button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>

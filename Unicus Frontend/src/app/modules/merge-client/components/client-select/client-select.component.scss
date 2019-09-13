@@ -1,0 +1,159 @@
+@import '../../../../../assets/sass/variables';
+
+:host {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px;
+  display: block;
+}
+
+$border-style-select: 2px solid $text-select;
+$border-style-normal: 1px solid $border;
+
+.uni-select-table {
+  display: block;
+  width: 100%;
+
+  tbody, thead {
+    display: block;
+
+    tr {
+      display: flex;
+    }
+
+    td, th {
+      display: block;
+      flex-basis: 0;
+      padding: 15px 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      background-color: #fff;
+
+      &:nth-of-type(1) {
+        flex-grow: 1;
+      }
+
+      &:nth-of-type(2) {
+        flex-grow: 1.5;
+        border-left: $border-style-select;
+        border-right: $border-style-select;
+        background-color: $select-bg;
+      }
+
+      &:nth-of-type(3) {
+        flex-grow: 1.5;
+      }
+    }
+  }
+
+  thead {
+    tr {
+      th {
+        font-size: 1em;
+        font-weight: 600;
+        border-top: $border-style-normal;
+        border-bottom: $border-style-normal;
+
+        &:nth-of-type(1) {
+          border-top-left-radius: 8px;
+          border-left: $border-style-normal;
+        }
+
+        &:nth-of-type(2) {
+          border-top: $border-style-select;
+        }
+
+        &:nth-of-type(3) {
+          border-top-right-radius: 8px;
+          border-right: $border-style-normal;
+        }
+      }
+    }
+  }
+
+
+  tbody {
+    tr:last-of-type td:nth-of-type(2) {
+      border-bottom: $border-style-select;
+    }
+
+    ._selected {
+      background-color: red;
+      td {
+        &:nth-of-type(2) {
+          color: $text-select;
+          font-weight: 600;
+        }
+
+        &:nth-of-type(3) {
+          background-color: $select-bg;
+        }
+      }
+    }
+
+
+    td {
+      border-bottom: $border-style-normal;
+      @extend .uni-text__size-text;
+
+      &:nth-of-type(1) {
+        color: $text-light;
+        border-left: $border-style-normal;
+      }
+
+      &:nth-of-type(2) {
+        cursor: not-allowed;
+        color: lighten($text-light, 20%);
+
+        &._selected {
+          color: $text-select;
+          font-weight: 600;
+        }
+      }
+
+      &:nth-of-type(3) {
+        cursor: pointer;
+        border-right: $border-style-normal;
+
+        &._selected {
+          background-color: $select-bg;
+        }
+
+        &:hover {
+          color: $text-select;
+          background-color: $select-bg;
+        }
+      }
+    }
+  }
+
+  tfoot {
+    display: block;
+
+    background-color: #fff;
+    border-left: $border-style-normal;
+    border-right: $border-style-normal;
+    border-bottom: $border-style-normal;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    tr, td {
+      width: 100%;
+      display: flex;
+    }
+
+    td {
+      padding: 20px;
+
+      button {
+        margin: 0 auto
+      }
+    }
+  }
+
+}
+
+
+

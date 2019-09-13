@@ -1,0 +1,17 @@
+<div class="detect-duplicate-scan__message">
+  <span>{{ getScanMessage() }}</span>
+</div>
+
+<div *ngIf="currentScanState != scanState.SCAN_IDLE" class="detect-duplicate-scan-loader">
+  <div *ngIf="currentScanState == scanState.SCAN_FETCHING" class="detect-duplicate-scan__spinner">
+    <loader-circle [colorLoader]="'rgb(64, 71, 81)'"></loader-circle>
+  </div>
+  <div *ngIf="currentScanState == scanState.SCAN_DETECTING" class="detect-duplicate-scan__loading-bar">
+    <div [ngStyle]="{'width': currentScanProgress + '%'}" class="loading-bar">{{ currentScanProgress }}%</div>
+  </div>
+  <div *ngIf="currentScanState == scanState.SCAN_ERROR" class="detect-duplicate-scan__reset">
+    <button class="button__green" (click)="startScan()">Start scan</button>
+    <button class="button__green" (click)="toResults()">Terug naar resultaten</button>
+  </div>
+</div>
+

@@ -1,0 +1,13 @@
+@import '~src/assets/sass/variables';
+
+:host {
+  width: 100%;
+  margin: 20px;
+  display: block;
+}
+un-client-info {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+}

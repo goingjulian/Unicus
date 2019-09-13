@@ -1,0 +1,3 @@
+export enum DuplicateScreenStates {
+  DETECT_DUPLICATE_RESULTS_SCREEN, DETECT_DUPLICATE_SCAN_SCREEN
+}

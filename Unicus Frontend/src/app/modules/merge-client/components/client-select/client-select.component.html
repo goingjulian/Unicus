@@ -1,0 +1,112 @@
+<table class="uni-select-table">
+  <thead>
+  <tr>
+    <th>
+    </th>
+    <th>Gekozen</th>
+    <th>Verwijderen</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Geslachtsnaam</td>
+    <td>{{ getValue(customerDataTypes.GESLACHTSNAAM) }}</td>
+    <td #geslachtsnaam (click)="changeClassSelected(geslachtsnaam); changeToKeep(customerDataTypes.GESLACHTSNAAM)">
+      {{ clientToDelete.getGeslachtsnaam() }}
+    </td>
+  </tr>
+  <tr>
+    <td>Tussenvoegsel</td>
+    <td>{{ getValue(customerDataTypes.TUSSENVOEGSEL) }}</td>
+    <td #tussenvoegsel (click)="changeClassSelected(tussenvoegsel); changeToKeep(customerDataTypes.TUSSENVOEGSEL)">
+      {{ clientToDelete.getTussenvoegsels() }}
+    </td>
+  </tr>
+  <tr>
+    <td>Voornamen</td>
+    <td>{{ getValue(customerDataTypes.VOORNAMEN) }}</td>
+    <td #voornamen (click)="changeClassSelected(voornamen); changeToKeep(customerDataTypes.VOORNAMEN)">
+      {{ clientToDelete.getVoornamen() }}
+    </td>
+  </tr>
+  <tr>
+    <td>Geslacht</td>
+    <td>{{ getValue(customerDataTypes.GESLACHT) }}</td>
+    <td #geslacht (click)="changeClassSelected(geslacht); changeToKeep(customerDataTypes.GESLACHT)">
+      {{ clientToDelete.getGeslacht() }}
+    </td>
+  </tr>
+  <tr>
+    <td>Geboortedatum</td>
+    <td>{{ getValue(customerDataTypes.GEBOORTEDATUM) }}</td>
+    <td #geboortedatum (click)="changeClassSelected(geboortedatum); changeToKeep(customerDataTypes.GEBOORTEDATUM)">
+      {{ clientToDelete.getGeboortedatum() }}
+    </td>
+  </tr>
+  <tr>
+    <td>Geboorteplaats</td>
+    <td>{{ getValue(customerDataTypes.GEBOORTEPLAATS) }}</td>
+    <td #geboorteplaats (click)="changeClassSelected(geboorteplaats); changeToKeep(customerDataTypes.GEBOORTEPLAATS)">
+      {{ clientToDelete.getGeboorteplaats() }}
+    </td>
+  </tr>
+  <tr>
+    <td>Burgelijke staat</td>
+    <td>
+      <p *ngIf="getValue(customerDataTypes.PARTNER)">Gehuwd</p>
+      <p *ngIf="!getValue(customerDataTypes.PARTNER)">Ongehuwd</p>
+    </td>
+    <td #partner (click)="changeClassSelected(partner); changeToKeep(customerDataTypes.PARTNER)">
+      <p *ngIf="clientToDelete.getPartner()">Gehuwd</p>
+      <p *ngIf="!clientToDelete.getPartner()">Ongehuwd</p>
+    </td>
+  </tr>
+  <tr>
+    <td>Nationaliteit</td>
+    <td>{{ getValue(customerDataTypes.NATIONALITEIT) }}</td>
+    <td #nationaliteit (click)="changeClassSelected(nationaliteit); changeToKeep(customerDataTypes.NATIONALITEIT)">
+      {{ clientToDelete.getNationaliteit() }}
+    </td>
+  </tr>
+  <tr>
+    <td>BSN</td>
+    <td>{{ getValue(customerDataTypes.BSN) }}</td>
+    <td #bsn (click)="changeClassSelected(bsn); changeToKeep(customerDataTypes.BSN)">
+      {{ clientToDelete.getBsn() }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>Adres</td>
+
+    <td>
+      <ul *ngIf="getValue(customerDataTypes.ADRES)">
+        <li *ngFor="let adres of getValue(customerDataTypes.ADRES)">
+          {{ adres.getShortAddressFormat() }}
+        </li>
+      </ul>
+      <span *ngIf="!getValue(customerDataTypes.ADRES)">-</span>
+    </td>
+
+    <td #adres (click)="changeClassSelected(adres); changeToKeep(customerDataTypes.ADRES)">
+      <ul *ngIf="clientToDelete.getAdressen()">
+        <li *ngFor="let adres of clientToDelete.getAdressen()">
+          {{ adres.getShortAddressFormat() }}
+        </li>
+      </ul>
+      <span *ngIf="!clientToDelete.getAdressen()">-</span>
+    </td>
+
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="3">
+      <button (click)="mergeFinalClients()" [disabled]="loadIndicator" class="button__green">
+        <span *ngIf="!loadIndicator">Samenvoegen</span>
+        <loader-circle *ngIf="loadIndicator"></loader-circle>
+      </button>
+    </td>
+  </tr>
+  </tfoot>
+</table>

@@ -1,0 +1,145 @@
+<section class="uni-info__header">
+  <div *ngIf="showClose" class="uni-info-close">
+    <button (click)="closeClient()">
+      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+           x="0px" y="0px"
+           viewBox="0 0 212.982 212.982" xml:space="preserve">
+        <g id="Close">
+          <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M131.804,106.491l75.936-75.936c6.99-6.99,6.99-18.323,0-25.312
+            c-6.99-6.99-18.322-6.99-25.312,0l-75.937,75.937L30.554,5.242c-6.99-6.99-18.322-6.99-25.312,0c-6.989,6.99-6.989,18.323,0,25.312
+            l75.937,75.936L5.242,182.427c-6.989,6.99-6.989,18.323,0,25.312c6.99,6.99,18.322,6.99,25.312,0l75.937-75.937l75.937,75.937
+            c6.989,6.99,18.322,6.99,25.312,0c6.99-6.99,6.99-18.322,0-25.312L131.804,106.491z"></path>
+        </g>
+      </svg>
+    </button>
+  </div>
+  <div class="uni-info-header">
+    <h4>{{ client.getVoorletters("[onbekend]") }}. {{client.getTussenvoegsels()}} {{ client.getGeslachtsnaam() }}</h4>
+  </div>
+  <div class="uni-info-content">
+    <ul>
+      <li>
+        <p class="uni-text__color-light">Natuurlijk persoon</p>
+      </li>
+      <li>
+        <p class="uni-text__size-text uni-text__color-light">
+          <span class="uni-img__inline-icon">
+            <svg class="uni-svg__color-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1024">
+              <path
+                d="M320 0c-177 0-320 143-320 320s160 416 320 704c160-288 320-527 320-704s-143-320-320-320z m0 448c-71 0-128-57-128-128s57-128 128-128 128 57 128 128-57 128-128 128z"></path>
+            </svg>
+          </span>
+          <span *ngIf="client.getAdressen()">{{ client.getAdressen()[0].getGemeente() }}</span>
+          <span *ngIf="!client.getAdressen()">Onbekend</span>
+        </p>
+      </li>
+      <li>
+        <p class="uni-text__size-text uni-text__color-light">
+          <span class="uni-img__inline-icon">
+            <svg class="uni-svg__color-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1850 1850">
+              <g transform="matrix(1,0,0,-1,91.118644,1297.8644)">
+                <path
+                d="M 128,-128 H 416 V 160 H 128 v -288 z m 352,0 H 800 V 160 H 480 V -128 z M 128,224 H 416 V 544 H 128 V 224 z m 352,0 H 800 V 544 H 480 V 224 z M 128,608 H 416 V 896 H 128 V 608 z m 736,-736 h 320 V 160 H 864 V -128 z M 480,608 H 800 V 896 H 480 V 608 z m 768,-736 h 288 V 160 H 1248 V -128 z M 864,224 h 320 V 544 H 864 V 224 z m -352,864 v 288 q 0,13 -9.5,22.5 -9.5,9.5 -22.5,9.5 h -64 q -13,0 -22.5,-9.5 Q 384,1389 384,1376 v -288 q 0,-13 9.5,-22.5 9.5,-9.5 22.5,-9.5 h 64 q 13,0 22.5,9.5 9.5,9.5 9.5,22.5 z m 736,-864 h 288 V 544 H 1248 V 224 z M 864,608 h 320 V 896 H 864 V 608 z m 384,0 h 288 V 896 H 1248 V 608 z m 32,480 v 288 q 0,13 -9.5,22.5 -9.5,9.5 -22.5,9.5 h -64 q -13,0 -22.5,-9.5 -9.5,-9.5 -9.5,-22.5 v -288 q 0,-13 9.5,-22.5 9.5,-9.5 22.5,-9.5 h 64 q 13,0 22.5,9.5 9.5,9.5 9.5,22.5 z m 384,64 V -128 q 0,-52 -38,-90 -38,-38 -90,-38 H 128 q -52,0 -90,38 -38,38 -38,90 v 1280 q 0,52 38,90 38,38 90,38 h 128 v 96 q 0,66 47,113 47,47 113,47 h 64 q 66,0 113,-47 47,-47 47,-113 v -96 h 384 v 96 q 0,66 47,113 47,47 113,47 h 64 q 66,0 113,-47 47,-47 47,-113 v -96 h 128 q 52,0 90,-38 38,-38 38,-90 z">
+                </path>
+              </g>
+            </svg>
+          </span>
+          {{ client.getGeboortedatum() }}
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="uni-info__personal">
+  <div class="uni-info-header">
+    <h4 class="uni-text__size-semi-header uni-text__color-dark">Persoonsgegevens</h4>
+  </div>
+  <div class="uni-info-content">
+    <ul>
+      <li>
+        <span class="uni-text__color-light uni-personal-cat">Geslachtsnaam:</span>
+        <span class="uni-text__color-dark uni-personal-info">{{ client.getGeslachtsnaam() }}</span>
+      </li>
+      <li>
+        <span class="uni-text__color-light uni-personal-cat">Tussenvoegsels:</span>
+        <span class="uni-text__color-dark uni-personal-info">{{ client.getTussenvoegsels("-") }}</span>
+      </li>
+      <li>
+        <span class="uni-text__color-light uni-personal-cat">Voornamen:</span>
+        <span class="uni-text__color-dark uni-personal-info">{{ client.getVoornamen() }}</span>
+      </li>
+      <li>
+        <span class="uni-text__color-light uni-personal-cat">Geslacht:</span>
+        <span class="uni-text__color-dark uni-personal-info">{{ client.getGeslacht() }}</span>
+      </li>
+      <li>
+        <span class="uni-text__color-light uni-personal-cat">Geboorte:</span>
+        <span class="uni-text__color-dark uni-personal-info">{{ client.getGeboortedatum() }}
+          te {{ client.getGeboorteplaats() }}, {{ client.getGeboorteland() }}</span>
+      </li>
+      <li>
+        <span class="uni-text__color-light uni-personal-cat">Burgelijke staat:</span>
+        <span class="uni-text__color-dark uni-personal-info" *ngIf="client.partner">Gehuwd</span>
+        <span class="uni-text__color-dark uni-personal-info" *ngIf="!client.partner">Ongehuwd</span>
+      </li>
+      <li>
+        <span class="uni-text__color-light uni-personal-cat">Nationaliteit:</span>
+        <span class="uni-text__color-dark uni-personal-info">{{ client.getNationaliteit() }}</span>
+      </li>
+      <li>
+        <span class="uni-text__color-light uni-personal-cat">BSN:</span>
+        <span class="uni-text__color-dark uni-personal-info">{{ client.getBsn() }}</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="uni-info__address">
+  <div class="uni-info-header">
+    <h4 class="uni-text__size-semi-header uni-text__color-dark">Adres</h4>
+  </div>
+  <div class="uni-info-content">
+    <ul>
+      <ng-container *ngIf="client.getAdressen()">
+        <li *ngFor="let adres of client.getAdressen()">
+          <p class="uni-text__size-text uni-text__color-dark">{{ adres.getLongAddressFormat() }}</p>
+          <!--<p class="uni-text__size-text uni-text__color-light">{{ adres.getBegindatum() }}</p>-->
+        </li>
+      </ng-container>
+      <li *ngIf="!client.getAdressen()"><p class="uni-text__color-light">Geen adressen</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="uni-info__dossiers">
+  <div class="uni-info-header">
+    <h4 class="uni-text__size-semi-header uni-text__color-dark ">Dossiers <span *ngIf="client.getDossiers()">({{ client.getDossiers().length }})</span></h4>
+  </div>
+  <div *ngIf="client.getDossiers()" class="uni-info-content">
+    <ul>
+      <li *ngFor="let dossier of client.getDossiers()">
+        <p class="uni-info-item__dossier uni-text__color-blue uni-text__size-text">
+         <span class="uni-img__inline-icon">
+            <svg class="uni-svg__color-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M6.083 4c1.38 1.612 2.578 3 4.917 3h11v13h-20v-16h4.083zm.917-2h-7v20h24v-17h-13c-1.629 0-2.305-1.058-4-3z"></path>
+            </svg>
+         </span>
+          {{ dossier.getDossiernummer() }}
+        </p>
+        <p class="uni-info-item__desc uni-text__color-dark">{{ dossier.getNaam() }}</p>
+        <p class="uni-info-item__cat uni-text__color-light">{{ dossier.getSoort() }}</p>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!client.getDossiers()" class="uni-info-content">
+    <div class="uni-info-item__dossier">
+      <span class="uni-text__color-light">Geen dossiers</span>
+    </div>
+  </div>
+</section>
+
+<section #footer class="uni-info__footer">
+    <ng-content></ng-content>
+</section>

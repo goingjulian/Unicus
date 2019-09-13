@@ -1,0 +1,3 @@
+export enum ScanState {
+  SCAN_FETCHING, SCAN_DETECTING, SCAN_IDLE, SCAN_ERROR
+}

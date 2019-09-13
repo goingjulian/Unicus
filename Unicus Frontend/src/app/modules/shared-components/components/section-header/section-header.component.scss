@@ -1,0 +1,16 @@
+@import '~src/assets/sass/variables';
+
+:host {
+  display: block;
+  padding: 80px 20px;
+  color: $text-dark;
+  h2 {
+    padding: 10px 0;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: normal;
+  }
+}

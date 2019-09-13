@@ -1,0 +1,5 @@
+<section-header [headerText]="'Automatisch scannen voor dubbele cliënten'" [headerSubText]="'Klik op een resultaat om deze te bekijken'"></section-header>
+<section-main>
+  <detect-duplicate-clients-scan *ngIf="activeScreen == duplicateScreenStates.DETECT_DUPLICATE_SCAN_SCREEN"></detect-duplicate-clients-scan>
+  <detect-duplicate-clients-results *ngIf="activeScreen == duplicateScreenStates.DETECT_DUPLICATE_RESULTS_SCREEN"></detect-duplicate-clients-results>
+</section-main>

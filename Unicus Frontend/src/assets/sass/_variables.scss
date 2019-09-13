@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900&subset=latin-ext');
+
+$bg: rgb(250, 251, 253);
+$select-bg: rgb(244, 246, 249);
+
+$border: rgb(221, 227, 237);
+
+$text-light: rgb(106, 124, 143);
+$text-dark: rgb(64, 71, 81);
+$text-select: rgb(62, 144, 232);
+$color-white: rgb(255, 255, 255);
+
+$font: 'Lato', Helvetica, sans-serif;
+
+.uni-text__size-text {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.uni-text__size-header {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.uni-text__size-semi-header {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.uni-text__color-dark {
+  color: $text-dark;
+}
+
+.uni-text__color-light {
+  color: $text-light;
+}
+
+.uni-text__color-blue {
+  color: $text-select;
+}
+
+.uni-svg__color-blue {
+  fill: $text-select;
+}
+
+.uni-svg__color-light {
+  fill: $text-light;
+}

@@ -1,0 +1,30 @@
+<div class="field">
+  <label for="{{ containerId }}" class="field_name">{{ containerName }}</label>
+  <input #clientId (keyup)="searchClients(clientId.value)" id="{{ containerId }}" type="text" autocomplete="off"
+         [autofocus]="autofocusInput"
+         placeholder="Zoek op relatie..."/>
+</div>
+<div *ngIf="clientId.value.length >= 1" class="dropdown">
+  <ul class="customer-list">
+    <li *ngIf="showLoadIndicator && clientSuggestions == null">
+      <div class="loader">
+        <div class="loadindicator"></div>
+      </div>
+    </li>
+    <li class="uni-search-customer-listitem" *ngFor="let clientSuggestion of clientSuggestions"
+        ngClass='{{isAllowed(clientSuggestion )}}' (click)="openClient(clientSuggestion)">
+      <span class="name">{{ getClientNameString(clientSuggestion) }}</span>
+      <span class="info">{{ getClientInfoString(clientSuggestion) }} </span>
+    </li>
+    <li class="uni-search-customer-listitem-message" *ngIf="clientSuggestions">
+      <span class="uni-text__color-light" *ngIf="clientSuggestions.length == 1">Totaal {{ clientSuggestions.length }} resultaat</span>
+      <span class="uni-text__color-light" *ngIf="clientSuggestions.length < 6 && clientSuggestions.length > 1">Totaal {{ clientSuggestions.length }} resultaten</span>
+      <span class="uni-text__color-light" *ngIf="clientSuggestions.length == 6">Worden maximaal 6 resultaten getoond</span>
+    </li>
+    <li *ngIf="clientSuggestionsResponse && showLoadIndicator == false">
+      <span class="name">{{ showMessage(clientSuggestionsResponse) }}.</span>
+    </li>
+  </ul>
+</div>
+
+
