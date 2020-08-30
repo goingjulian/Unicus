@@ -1,5 +1,5 @@
 # Unicus
-The backend for the Unicus application. The application is written in Kotlin, using the Spring Boot and KMongo framework.
+The frontend and backend of the Unicus application. The backend application is written in Kotlin, using the Spring Boot and KMongo framework. The frontend application is written in TypeScript, using the Angular framework.
 
 This software is part of the 'Unicus' application, built during the OOSE-project course. Unicus provides a datacleansing solution for Nobilex, which is software built by Avisi.
 
