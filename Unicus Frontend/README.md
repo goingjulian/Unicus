@@ -1,6 +1,6 @@
 # UnicusAngularFrontend
 
-This software is part of the 'Unicus' application, built during the OOSE-project course. Unicus provides a datacleansing solution for Nobilex, which is software built by [Avisi](https://www.avisi.nl).
+This software is part of the 'Unicus' application, built during the OOSE-project course.
 
 This software was built using the Angular-framework, combined with TypeScript.
 
